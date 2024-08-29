@@ -2,7 +2,11 @@ import React from 'react'
 import './Leftsidebar.css'
 import { NavLink } from 'react-router-dom'
 import Globe from "../../assets/Globe.svg"
+import { useSelector } from 'react-redux'
 const Leftsidebar = ({ slidein }) => {
+
+  const currentuser = useSelector((state)=>state.currentuserreducer)
+
   const slideinstyle = {
     transform: "translateX(0%)",
   };
@@ -33,8 +37,13 @@ const Leftsidebar = ({ slidein }) => {
             </NavLink>
           </button>
           <button className='nav-btnn'>
-            <NavLink to='/Users' className='side-nav-links' activeclassname='active' style={{paddingLeft:"40px"}}>
+            <NavLink onClick={()=>!currentuser && alert('login before')} to={currentuser ? '/Users' : '/auth'} className='side-nav-links' activeclassname='active' style={{paddingLeft:"40px"}}>
             <p >Users</p>
+            </NavLink>
+            <NavLink onClick={()=>!currentuser && alert('login before')} to={currentuser ? '/publicspace' : '/auth'} className='side-nav-links' activeclassname='active' style={{paddingLeft:"40px"}}>
+             
+            <p >public Space</p> 
+           
             </NavLink>
           </button>
         </div>

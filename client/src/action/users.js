@@ -1,8 +1,10 @@
 import * as api from "../api"
+import { getloginhistory } from "./loginHistory";
 export const fetchallusers=()=> async(dispatch)=>{
     try {
         const {data}=await api.getallusers();
         dispatch({type:"FETCH_USERS",payload:data});
+        dispatch(getloginhistory())
     } catch (error) {
         console.log(error)
     }

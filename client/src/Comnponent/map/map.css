@@ -1,0 +1,26 @@
+.weather-container{
+    width: 100%;
+    max-height: 50px;
+    min-height: 50px;
+    border: 1px solid rgba(137, 134, 134, 0.713);
+    display: flex;
+    justify-content: space-between;
+}
+
+.weather-container p:nth-child(1){
+    font-size: 16px;
+    font-weight: 700;
+    margin-left: 10px;
+    color: rgb(45, 42, 42);
+}
+
+.weather-container p:nth-child(2){
+    font-weight: 500;
+    color: rgb(252, 154, 34);
+}
+
+.weather-container p:nth-child(3){
+    margin-right: 10px;
+    font-weight: 500;
+    color: rgb(25, 122, 122);
+}

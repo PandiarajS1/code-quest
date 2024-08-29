@@ -10,4 +10,4 @@ const questionreducer=(state={data:null},action)=>{
             return state;
     }
 };
-export default questionreducer;
+export default questionreducer; 

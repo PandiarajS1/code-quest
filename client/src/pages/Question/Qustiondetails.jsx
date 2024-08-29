@@ -17,7 +17,7 @@ const Qustiondetails = () => {
     const user =useSelector((state)=>state.currentuserreducer)
     const location=useLocation()
     const navigate=useNavigate()
-    const url="http://localhost:3000"
+    const url="https://code-quest-z6mr.onrender.com"
     const handlepostans=(e,answerlength)=>{
         e.preventDefault();
         if(user ===null){
@@ -65,7 +65,7 @@ const Qustiondetails = () => {
             <h1>Loading...</h1>
         ):(
             <>
-            {questionlist.data.filter((question)=> question._id=== id ).map((question)=>(
+            {questionlist.data.filter((question)=> question._id === id ).map((question)=>(
                 <div key={question._id}>
                     <section className='question-details-container'>
                         <h1>{question.questiontitile}</h1>
@@ -115,7 +115,7 @@ const Qustiondetails = () => {
                         <form onSubmit={(e)=>{
                             handlepostans(e,question.answer.length)
                         }}>
-                            <textarea name="" id="" cols="30" rows="10" vlaue={answer} onChange={(e)=>setanswer(e.target.value)}></textarea>
+                            <textarea name="" id="" cols="30" rows="10" value={answer} onChange={(e)=>setanswer(e.target.value)}></textarea>
                         <br />
                         <input type="submit" className="post-ans-btn" value="Post your Answer"/>
                         </form>

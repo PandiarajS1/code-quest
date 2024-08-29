@@ -1,6 +1,8 @@
 import React from 'react'
+import LonginHistory from '../../Comnponent/loginHistory/loginhistory'
+import Location from '../../Comnponent/location/location'
 
-const Profilebio = ({currentprofile}) => {
+const Profilebio = ({currentprofile,currentuser,id}) => {
   return (
     <div>
       <div>
@@ -23,8 +25,16 @@ const Profilebio = ({currentprofile}) => {
       ):(
         <p>No bio found</p>
       )}</div>
+      <div>
+      { currentuser?.result?._id === id &&(<LonginHistory />)}
+      { currentuser?.result?._id === id && <Location/>}
+      </div>
+    
     </div>
   )
 }
+
+
+
 
 export default Profilebio

@@ -15,7 +15,6 @@ const Userprofile = ({ slidein }) => {
   const users = useSelector((state)=>state.usersreducer)
   const currentprofile = users.filter((user) => user._id === id)[0]
   const currentuser = useSelector((state)=>state.currentuserreducer)
-  // console.log(currentuser._id)
   return (
     <div className="home-container-1">
       <Leftsidebar slidein={slidein} />
@@ -39,7 +38,7 @@ const Userprofile = ({ slidein }) => {
             {Switch ? (
               <Editprofileform currentuser={currentuser} setswitch={setswitch} />
             ) : (
-              <Profilebio currentprofile={currentprofile} />
+              <Profilebio currentprofile={currentprofile} currentuser={currentuser} id={id}/>
             )}
           </>
         </section>

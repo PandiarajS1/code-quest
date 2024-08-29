@@ -58,10 +58,10 @@
     display: flex;
   }
   
-  .auth-container-2 form label:nth-child(4) input {
+  /* .auth-container-2 form label:nth-child(4) input {
     width: 15%;
     margin: 13px 0px;
-  }
+  } */
   
   .auth-btn {
     margin-top: 10px;
@@ -88,6 +88,33 @@
     cursor: pointer;
   }
   
+  .otp-input{
+    display: flex;
+    max-height: 40px;
+    justify-content: space-between;
+    width: 100%;
+    
+  }
+
+  .otp-input input{
+    flex-grow: 1;
+    min-height: 10px;
+    margin: 0%;
+  }
+
+  .otp-input button {
+    margin: 0%;
+    padding: 5px 0px;
+  }
+
+  .otp-label{
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: flex-start;
+
+  }
+
   @media screen and (max-width: 820px) {
     .auth-container-1 {
       display: none;

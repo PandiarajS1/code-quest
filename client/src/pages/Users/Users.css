@@ -1,8 +1,8 @@
 .user-list-container {
     padding: 30px 0px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    
   }
   
   .user-profile-link {
@@ -15,11 +15,56 @@
   
   .user-profile-link h3 {
     padding: 10px 13px;
-    background-color: #d3d3d3;
+    background-color: #49adff;
     border-radius: 50%;
+    color: white;
   }
+
+  .user-page-section{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    max-width: 200px;
+    min-width: fit-content;
+    height: 60px;
+    padding: 8px 10px;
+    border-radius: 6px;
+    margin: 10px 20px;
+    background-color: #eaeaea74;
+  }
+
+  .user-page-section i{
+    font-weight: bolder;
+    background-color: #1ea8fea6 ;
+    text-align: center;
+    border-radius: 50px;
+    color: white;
+    margin-top: 0%;
+    height: 10px;
+    width: 20px;
+  }
+
+  .user-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: baseline;
+    
+
+  }
+
+  .user-body button{
+    font-size: x-small;
+    background-color: #1ea8fea6;
+    border: none;
+    padding: 4px 6px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
   
-  .user-profile-link h5 {
-    margin: 0px 10px;
+  .user-body h5 {
+    font-size: 16px;
+    margin: 5px 10px;
   }
   

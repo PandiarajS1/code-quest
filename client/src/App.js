@@ -6,12 +6,18 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import Allroutes from './Allroutes'
 import { useDispatch } from 'react-redux';
 import { fetchallquestion } from './action/question';
+import { getpost } from './action/post';
+import { getallfriends } from './action/friends';
+import { setcurrentuser } from './action/currentuser';
 function App() {
   const [slidein,setslidein]=useState(true)
   const dispatch=useDispatch()
 useEffect(()=>{
+  
   dispatch(fetchallusers());
   dispatch(fetchallquestion());
+  dispatch(getpost());
+  dispatch(getallfriends());
 },[dispatch])
 
   useEffect(()=>{

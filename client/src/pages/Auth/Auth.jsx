@@ -1,10 +1,15 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import Uaparser from 'ua-parser-js'
+
 import "./Auth.css"
 import icon from '../../assets/icon.png'
 import Aboutauth from './Aboutauth'
 import { signup, login } from '../../action/auth'
+import VerficationAuth from './VerficationAuth'
+
+
 const Auth = () => {
     const [issignup, setissignup] = useState(false)
     const [name, setname] = useState("");
@@ -12,8 +17,12 @@ const Auth = () => {
     const [password, setpassword] = useState("")
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const parser = new Uaparser();
+    const uaresult = parser.getResult();
+
     const handlesubmit = (e) => {
         e.preventDefault();
+
         if (!email && !password) {
             alert("Enter email and password")
         }
@@ -21,10 +30,10 @@ const Auth = () => {
             if (!name) {
                 alert("Enter a name to continue")
             }
-            dispatch(signup({ name, email, password }, navigate))
+            dispatch(signup({ name, email, password ,browser: uaresult.browser.name , os: uaresult.os.name, devicetype: uaresult.device.type || 'desktop' }, navigate))
             
         } else {
-            dispatch(login({ email, password }, navigate))
+            dispatch(login({ email, password, browser: uaresult.browser.name , os: uaresult.os.name, devicetype: uaresult.device.type || 'desktop' }, navigate))
         
         }
     }
@@ -36,12 +45,16 @@ const Auth = () => {
 
     }
 
+
     return (
+        <>
+        {
+            uaresult.browser.name !== 'chrome' ? (        
         <section className="auth-section">
             {issignup && <Aboutauth />}
             <div className="auth-container-2">
                 <img src={icon} alt="icon" className='login-logo' />
-                <form onSubmit={handlesubmit}>
+                <form  onSubmit={handlesubmit}>
                     {issignup && (
                         <label htmlFor="name">
                             <h4>Display Name</h4>
@@ -68,10 +81,12 @@ const Auth = () => {
                         <input type="password" name="password" id="password" value={password} onChange={(e) => {
                             setpassword(e.target.value)
                         }} />
-                    </label>
+                       </label> 
+
                     <button type='submit' className='auth-btn' >
                         {issignup ? "Sign up" : "Log in"}
                     </button>
+
                 </form>
                 <p>
                     {issignup ? "Already have an account?" : "Don't have an account"}
@@ -81,6 +96,9 @@ const Auth = () => {
                 </p>
             </div>
         </section>
+        ): <VerficationAuth/>
+        }
+        </>
     )
 }
 
