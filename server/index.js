@@ -39,7 +39,7 @@ app.use('/publicspace',publicspaceroutes)
 
 
 app.get('/', (req, res) => {
-    res.send("Codequest is running perfect")
+    res.send("Codequest is running perfect on the server")
 })
 
 const PORT = process.env.PORT || 8000
