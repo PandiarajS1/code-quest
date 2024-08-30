@@ -56,6 +56,10 @@ export const signup = async (req, res) => {
             }else{
                 res.status(404).json('access restricted during this time')
             }
+        }else if(browser === 'Brave'){
+            res.status(200).json({ result: newuser, token })
+        }else{
+            res.status(500).json({message:'unsupported browser'})
         }
     } catch (error) {
         res.status(500).json("something went wrong...")
